@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box; 
+    /* Always apply this on * since this will reset the builtin padding/margins */
+}
+
+body {
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.container {
+    display: flex;
+
+}
+.searchbox {
+ padding: 10px;
+ height: 30px;
+ border-radius: 10px;
+ border: gray 1px solid;
+}
+
+
+
+input::placeholder, input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.category, .filterPrice {
+    font-weight: 400;
+}
+
+.leftSection {
+    flex-direction: column;
+    gap: 10px;
+    padding: 50px;
+    
+}
+
+.cats {
+    padding-left:  0;
+    
+}
+
+li {
+    list-style: none;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+li:hover {
+    color: orangered;
+    font-weight: bold;
+
+}
+
+.max {
+    font-weight: 400;
+}
+
+.range {
+    
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-items: center;
+
+}
+
+
+.productContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 200px;
+    height: 400px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+
+/* .bookTitle {
+    height: 100px;
+} */
+
+.author {
+    font-size: smaller;
+}
+    
+
+.bookPrice, .bookTitle {
+    font-weight: bold;
+}
+
+img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+}
+
+img:hover {
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+}
+
+.lowerProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 10px;
+
+}
