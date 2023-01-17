@@ -166,11 +166,9 @@ const searchInput = () => {
 
     if (value) {
       displayProducts(
-        bookData.filter((item) => item.name.toLowerCase().indexOf(value) !== -1)) 
-    // displayProducts(
-    //     bookData.filter(
-    //       (item) => item.author.toLowerCase().indexOf(value) !== -1));
-      // }else if (value) {
+        (bookData.filter((item) => (item.name.concat(item.author)).toLowerCase().indexOf(value) !== -1) ))
+
+        //added two array categories using concat syntax
     } else {
       displayProducts(bookData);
     }
@@ -193,7 +191,7 @@ const setFilterRangePrice = () => {
   rangePrice.addEventListener("input", (e) => {
     priceValue.textContent = "₱" + e.target.value;
     const newMaxValue = e.target.value;
-    displayProducts(bookData.filter((item) => item.price <= newMaxValue))
+    displayProducts(bookData.filter((item) => item.price <= newMaxValue));
   });
 };
 
