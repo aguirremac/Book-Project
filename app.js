@@ -85,14 +85,15 @@ const bookData = [
   },
 ];
 
-
 const productContainer = document.querySelector(".products");
 
 //adding showAll function
-const displayProducts = (filteredProducts) => {    //filteredProducts is just an argument sample
-  productContainer.innerHTML = filteredProducts.map(
-    (item) =>
-      `<div class="productContent">
+const displayProducts = (filteredProducts) => {
+  //filteredProducts is just an argument sample
+  productContainer.innerHTML = filteredProducts
+    .map(
+      (item) =>
+        `<div class="productContent">
         <div class="imageContainer">
             <img
             src = ${item.img}
@@ -105,82 +106,99 @@ const displayProducts = (filteredProducts) => {    //filteredProducts is just an
             <span class="bookPrice">&#8369;${item.price.toLocaleString()}</span>
             </div>
         </div>`
-  ).join("");  //joins array with commas
+    )
+    .join(""); //joins array with commas
 };
 
-const all = document.querySelector('.all');
-const arts= document.querySelector('.arts');
-const children = document.querySelector('.children');
-const graphic = document.querySelector('.graphic');
-const lifestyle = document.querySelector('.lifestyle');
-const search = document.querySelector('.searchbox');
+const all = document.querySelector(".all");
+const arts = document.querySelector(".arts");
+const children = document.querySelector(".children");
+const graphic = document.querySelector(".graphic");
+const lifestyle = document.querySelector(".lifestyle");
+const search = document.querySelector(".searchbox");
+const rangePrice = document.querySelector(".rangeBtn");
+const priceValue = document.querySelector(".priceValue");
 
 //adding function to category buttons
 const showAll = () => {
-    all.addEventListener('click',() => displayProducts(bookData))};
+  all.addEventListener("click", () => displayProducts(bookData));
+};
 
 showAll();
 
 const showArts = () => {
-    arts.addEventListener('click',() =>
-        displayProducts(bookData.filter(item => item.categ === 'Arts & Designs'
-            ))
-    )};
+  arts.addEventListener("click", () =>
+    displayProducts(bookData.filter((item) => item.categ === "Arts & Designs"))
+  );
+};
 
 showArts();
 
 const showChildren = () => {
-    children.addEventListener('click',() =>
-        displayProducts(bookData.filter(item => item.categ === "Children's"
-            ))
-    )};
+  children.addEventListener("click", () =>
+    displayProducts(bookData.filter((item) => item.categ === "Children's"))
+  );
+};
 
 showChildren();
 
 const showGraphic = () => {
-    graphic.addEventListener('click',() =>
-        displayProducts(bookData.filter(item => item.categ === "Graphic Novel"
-            ))
-    )};
+  graphic.addEventListener("click", () =>
+    displayProducts(bookData.filter((item) => item.categ === "Graphic Novel"))
+  );
+};
 
 showGraphic();
 
 const showLifestyle = () => {
-    lifestyle.addEventListener('click',() =>
-        displayProducts(bookData.filter(item => item.categ === "Lifestyle"
-            ))
-    )};
+  lifestyle.addEventListener("click", () =>
+    displayProducts(bookData.filter((item) => item.categ === "Lifestyle"))
+  );
+};
 
 showLifestyle();
-
-
 
 //adding search input function
 
 const searchInput = () => {
-    search.addEventListener('keyup', (e) => {
-        const value = e.target.value.toLowerCase();
+  search.addEventListener("keyup", (e) => {
+    const value = e.target.value.toLowerCase();
 
-        if (value) {
-            displayProducts(bookData.filter(item => item.name.toLowerCase().indexOf(value) !== -1 ));
-            displayProducts(bookData.filter(item => item.author.toLowerCase().indexOf(value) !== -1 ));  
-        // }else if (value) {
-            
-        } else {
-            displayProducts(bookData);
-        }
-
-    });
-}
+    if (value) {
+      displayProducts(
+        bookData.filter((item) => item.name.toLowerCase().indexOf(value) !== -1)) 
+    // displayProducts(
+    //     bookData.filter(
+    //       (item) => item.author.toLowerCase().indexOf(value) !== -1));
+      // }else if (value) {
+    } else {
+      displayProducts(bookData);
+    }
+  });
+};
 
 searchInput();
 
+//adding function to range amount
+const setFilterRangePrice = () => {
+  const priceList = bookData.map((item) => item.price);
+  const minPrice = Math.min(...priceList); //... spread the array to regular arg to work
+  const maxPrice = Math.max(...priceList);
 
+  priceValue.textContent = "₱" + maxPrice.toLocaleString();
+  rangePrice.min = minPrice; //setting min innerHTML to minPrice
+  rangePrice.max = maxPrice;
+  rangePrice.value = maxPrice; //setting min innerHTML to maxPrice
+
+  rangePrice.addEventListener("input", (e) => {
+    priceValue.textContent = "₱" + e.target.value;
+    const newMaxValue = e.target.value;
+    displayProducts(bookData.filter((item) => item.price <= newMaxValue))
+  });
+};
+
+setFilterRangePrice();
 
 displayProducts(bookData);
 
-
 //&#8369; Peso html code
-
-
-
