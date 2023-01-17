@@ -102,7 +102,7 @@ const displayProducts = (filteredProducts) => {    //filteredProducts is just an
             <span class="bookTitle">${item.name}</span>
         <div class='lowerProduct'>
             <span class="author"> ${item.author}</span>
-            <span class="bookPrice">&#8369;${item.price}</span>
+            <span class="bookPrice">&#8369;${item.price.toLocaleString()}</span>
             </div>
         </div>`
   ).join("");  //joins array with commas
@@ -113,21 +113,67 @@ const arts= document.querySelector('.arts');
 const children = document.querySelector('.children');
 const graphic = document.querySelector('.graphic');
 const lifestyle = document.querySelector('.lifestyle');
+const search = document.querySelector('.searchbox');
 
 //adding function to category buttons
 const showAll = () => {
     all.addEventListener('click',() => displayProducts(bookData))};
 
+showAll();
 
-const showArts = (filteredProducts) => {
-    arts.addEventListener('click',() => filteredProduct.filter.categ === 'Arts & Designs'
-    )
-}
+const showArts = () => {
+    arts.addEventListener('click',() =>
+        displayProducts(bookData.filter(item => item.categ === 'Arts & Designs'
+            ))
+    )};
+
+showArts();
+
+const showChildren = () => {
+    children.addEventListener('click',() =>
+        displayProducts(bookData.filter(item => item.categ === "Children's"
+            ))
+    )};
+
+showChildren();
+
+const showGraphic = () => {
+    graphic.addEventListener('click',() =>
+        displayProducts(bookData.filter(item => item.categ === "Graphic Novel"
+            ))
+    )};
+
+showGraphic();
+
+const showLifestyle = () => {
+    lifestyle.addEventListener('click',() =>
+        displayProducts(bookData.filter(item => item.categ === "Lifestyle"
+            ))
+    )};
+
+showLifestyle();
 
 
 
 //adding search input function
 
+const searchInput = () => {
+    search.addEventListener('keyup', (e) => {
+        const value = e.target.value.toLowerCase();
+
+        if (value) {
+            displayProducts(bookData.filter(item => item.name.toLowerCase().indexOf(value) !== -1 ));
+            displayProducts(bookData.filter(item => item.author.toLowerCase().indexOf(value) !== -1 ));  
+        // }else if (value) {
+            
+        } else {
+            displayProducts(bookData);
+        }
+
+    });
+}
+
+searchInput();
 
 
 
