@@ -11,6 +11,7 @@ body {
 
 .container {
     display: flex;
+    
 
 }
 
@@ -19,6 +20,7 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 50px 100px 50px 50px;
+    max-height: 100vh;
     
 }
 .logoSection {
@@ -132,9 +134,10 @@ li:hover, .bookTitle:hover {
 }
 
 .productImg {
-    width: 150px;
+    width: 120px;
     height: 200px;
     object-fit: cover;
+    object-position: top;
 }
 
 .productImg:hover {
