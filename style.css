@@ -34,8 +34,9 @@ body {
 
 .leftSection {
     flex-direction: column;
-    padding: 50px 50px 50px 50px;
+    padding: 50px 10px 50px 30px;
     width: 15%;
+    height: 100vh;
     max-height: min-content;
     margin-right: 100px;
     background-color: #E8DFCA;
@@ -45,16 +46,19 @@ body {
     display: flex;
     align-items: center;
     padding-bottom: 20px;
+    
 }
 
 .brandLogo {
-    height: 50px;
+    height: 30px;
 }
 
 .brandName {
-    font-size: 50px;
-    font-weight: 900;
-    padding-left: 10px;;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-left: 10px;
+    letter-spacing: 10px;
+    
 }
 
 
@@ -91,7 +95,8 @@ input::placeholder, input {
 
 
 .category {
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 25px;
     
 }
 
@@ -111,9 +116,14 @@ input::placeholder, input {
     width: 100%;
 }
 
+.startEnd {
+    display: flex;
+    justify-content: end;
+}
 
 .cats {
     padding-left:  0;
+    font-weight: 600;
     
     
 }
@@ -130,8 +140,8 @@ li:hover, .bookTitle:hover{
 }
 
 .max {
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 800;
+    font-size: 15px;
 }
 
 .range {
@@ -144,26 +154,42 @@ li:hover, .bookTitle:hover{
     gap: 10px;
     justify-items: center;
     margin: auto;
-    justify-content: flex-start   
+    justify-content: flex-start;
+    z-index: 99;
+    position: absolute;
+    top: 50px; 
+    animation: fadeIn 1s;
 }
 
 .rightSection {
     width: 85%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.searchText {
+    font-weight: 900;
+    padding-left: 30px;
+    
 }
 
 .productContent {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    margin: 50px;
-    width: 600px;
-    height: 400px;
+    gap: 5px;
+    margin: 25px;
+    width: 300px;
+    height: 200px;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
-    border-radius: 20px;
-    padding: 50px;
+    border-radius: 10px;
+    padding: 25px;
     background-color: #F5EFE6;
+    
+    
+    
    
     
 }
@@ -171,9 +197,9 @@ li:hover, .bookTitle:hover{
 
 
 .author {
-    font-size: 15px;
-    gap: 20px;
-    height: 20px;
+    font-size: 7px;
+    gap: 10px;
+    height: 10px;
     overflow: hidden;
     display: block;
 
@@ -182,11 +208,11 @@ li:hover, .bookTitle:hover{
 
 .bookTitle{
 
-font-size: 20px;
-height: 200px;
+font-size: 10px;
+height: 100px;
 font-weight: bold;
 position: relative;
-top: 100px;
+top: 25px;
 display: block;
 }
 
@@ -198,20 +224,20 @@ display: block;
 
 
 .productImg {
-    width: 200px;
-    height: 300px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
     object-position: top;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: 0.5s;
 }
 
 .productImg:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
     transition: 0.2s ease-in-out;
 }
 .publishedYear {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     display: block;
 }
 
@@ -220,24 +246,25 @@ display: block;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
+    width: 150px;
     padding: 0 0 0 30px;
 }
    
 .yearAuthor {
-    position: relative
-    top: 130px;
+    font-size: 10px;
+    font-weight: 600;
     
 }
 
 
 .bookInfo {
-    padding: 10px 20px ;
-    border-radius: 10px;
+    padding: 5px 10px ;
+    border-radius: 5px;
     display: block;
     position: relative;
     bottom: 0;
     text-decoration:  none;
+    font-size: 10px;
     color: white;  
     text-transform: uppercase;
     transition: 0.5s;
@@ -253,4 +280,27 @@ display: block;
     color: #fff;
     text-decoration: none;
 
+}
+
+.trending {
+    position: relative;
+    top: 175px;
+    padding-left: 30px;
+}
+
+.products3 {
+    position: relative;
+    display: flex;
+
+}
+
+.products2 {
+    position: relative;
+    display: flex;
+
+}
+.popularAuthor {
+    position: relative;
+    top: 350px;
+    padding-left: 30px;
 }

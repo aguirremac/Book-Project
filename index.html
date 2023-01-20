@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Project</title>
+    <title>Libroo</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,7 @@
     </div>
 
     <form class="searcboxGroup" onsubmit ="return false">
-      <input type="text" class="searchbox" placeholder="Search.." />
+      <input type="text" class="searchbox" placeholder="Search title/author..." />
       <button class="magnifyButton">
       <img src="https://img.icons8.com/ios-filled/512/search.png" alt="" class="magnify"> 
     </button>
@@ -37,25 +37,33 @@
 
       <h1 class="category">Categories</h1>
       <ul class="cats">
-        <li class="all">All</li>
+        <li class="home">For You</li>
         <li class="fiction">Fiction</li>
         <li class="children">Children's</li>
         <li class="nature">Nature</li>
         <li class="religion">Religion</li>
       </ul>
 
-      <h1 class="max">Published Year</h1>
-      <div class="priceRange">
+      <h1 class="max">Year Published</h1>
+      <div class="yearRange">
         <input type="range" class="rangeBtn" />
-        <span class="priceValue">
+        <div class="startEnd">
+        <span class="yearValueEnd"></span>
+        </div>
           <!-- $140 -->
         </span>
       </div>
     </div>
     <div class="rightSection">
+      <h1 class="searchText"></h1>
+      <h1 class="trending"></h1>
+      <h1 class="popularAuthor"></h1>
       <div class="products">
+        
         <!-- inside will be mapped thru JS -->
       </div>
+      <div class="products2"></div>
+      <div class="products3"></div>
     </div>
 
 </div>
