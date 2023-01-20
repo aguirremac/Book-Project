@@ -4,13 +4,29 @@
 }
 
 body {
-    background-color: white;
+    background-color: #AEBDCA;
     font-family: 'Montserrat', sans-serif;
+    height: 100vh;
 
 }
 
+.preloader {
+    display: none;
+    background: #ffffff url(img/preloader.gif) no-repeat center center;
+    background-size:20%; 
+    height: 100vh;
+    z-index: 100;
+    width: 100%;
+
+}
+
+
+
 .container {
+    width: 100%;
     display: flex;
+    z-index: 1;
+    
     
 
 }
@@ -18,9 +34,11 @@ body {
 
 .leftSection {
     flex-direction: column;
-    gap: 10px;
-    padding: 50px 100px 50px 50px;
-    max-height: 100vh;
+    padding: 50px 50px 50px 50px;
+    width: 15%;
+    max-height: min-content;
+    margin-right: 100px;
+    background-color: #E8DFCA;
     
 }
 .logoSection {
@@ -40,16 +58,32 @@ body {
 }
 
 
+.searcboxGroup{
+    display: flex;
+}
+
 
 .searchbox {
  padding: 10px;
- height: 30px;
+ height: 40px;
  border-radius: 10px;
  border: gray 1px solid;
  width: 100%;
 }
+.magnify {
+    height: 40px;
+    padding-left: 10px;
+    cursor: pointer;
+}
 
+.magnify:hover {
+    transform: scale(1.2);
 
+}
+.magnifyButton {
+    border: 0 ;
+    background-color: transparent;
+}
 
 input::placeholder, input {
     font-family: 'Montserrat', sans-serif;
@@ -58,6 +92,7 @@ input::placeholder, input {
 
 .category {
     font-weight: 400;
+    
 }
 
 .priceValue {
@@ -80,13 +115,14 @@ input::placeholder, input {
 .cats {
     padding-left:  0;
     
+    
 }
 
 li {
     list-style: none;
     padding-bottom: 20px;
 }
-li:hover, .bookTitle:hover {
+li:hover, .bookTitle:hover{
     color: orangered;
     font-weight: bold;
     cursor: pointer;
@@ -107,50 +143,114 @@ li:hover, .bookTitle:hover {
     flex-wrap: wrap;
     gap: 10px;
     justify-items: center;
-
+    margin: auto;
+    justify-content: flex-start   
 }
 
+.rightSection {
+    width: 85%;
+}
 
 .productContent {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    width: 200px;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 50px;
+    width: 600px;
     height: 400px;
     text-align: center;
-    padding-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+    border-radius: 20px;
+    padding: 50px;
+    background-color: #F5EFE6;
+   
+    
 }
 
 
 
 .author {
-    font-size: smaller;
+    font-size: 15px;
+    gap: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: block;
+
 }
     
 
-.bookPrice, .bookTitle {
-    font-weight: bold;
+.bookTitle{
+
+font-size: 20px;
+height: 200px;
+font-weight: bold;
+position: relative;
+top: 100px;
+display: block;
 }
 
-.productImg {
-    width: 120px;
-    height: 200px;
-    object-fit: cover;
-    object-position: top;
-}
-
-.productImg:hover {
-    transform: scale(1.2);
+.bookTitle:hover{
+    transform: scale(1.05);
     transition: 0.2s ease-in-out;
 }
 
+
+
+.productImg {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.productImg:hover {
+    transform: scale(1.15);
+    transition: 0.2s ease-in-out;
+}
+.publishedYear {
+    padding-bottom: 20px;
+    display: block;
+}
+
 .lowerProduct {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100%;
-    gap: 10px;
+    justify-content: space-between;
+    width: 300px;
+    padding: 0 0 0 30px;
+}
+   
+.yearAuthor {
+    position: relative
+    top: 130px;
+    
+}
+
+
+.bookInfo {
+    padding: 10px 20px ;
+    border-radius: 10px;
+    display: block;
+    position: relative;
+    bottom: 0;
+    text-decoration:  none;
+    color: white;  
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%);
+    box-shadow: 0 0 20px #eee;
+    background-size: 200% auto;
+    
+    
+     
+}
+.bookInfo:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 
 }

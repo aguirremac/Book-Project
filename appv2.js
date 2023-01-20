@@ -1,126 +1,118 @@
-const search = document.querySelector(".searchbox");
+///GOOGLE SEARCH API KEY AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw
 
-const searchBook = () => {
-    search.addEventListener("keyup", async (e) => {
-  e.preventDefault();
-  const searchTerm = e.target.value.toLowerCase();
-  const config = { params: { q: searchTerm } };
-//   // const res = await axios.get(`http://openlibrary.org/search.json?q=${searchTerm}`) or
-  const res = await axios.get(`http://openlibrary.org/search.json`,config);
- 
-    let output = '';
-
-    res.data.docs.forEach(book => {
-
-        var bookTitle = book.title;
-        if (book.title.length >= 40){
-            bookTitle = book.title.slice(0,40);
-        } 
-
-        var bookAuthor = book.author_name
-        if (book.author_name.length >1 ){
-             bookTitle = book.author_name[0]
-        }
-
-        var pubYear = book.publish_year;
-        if (book.publish_year.length > 1) {
-            pubYear = book.publish_year[0]
-        }
-
-        var imageSrc = "https://covers.openlibrary.org/b/id/"+ book.cover_i + "-L.jpg";
-        if (book.cover_i === undefined){
-            imageSrc = "https://bimp-eaga.asia/sites/default/files/styles/cover/public/default_images/no-cover.png?itok=QYKv5ZlY"
-        }
-
-        output +=
-            `<div class="productContent">
-    <div class="imageContainer">
-        <img class="productImg" src = ${imageSrc} alt=""
-        />
-        </div>
-        <span class="bookTitle">${bookTitle}</span>
-    <div class='lowerProduct'>
-        <span class="author">${bookAuthor}</span>
-        <span class="publishedYear">${pubYear}</span>
-        </div>
-    </div>`
-
-      })
-
-      productContainer.innerHTML = output;
-    
-    })
-} 
-searchBook();
-
-
-//create function to showAll
-
-// const showAll = () => {
-//     all.addEventListener('click')
-// }
-
-// let allBooks = [];
-//     for (let i = 0; i < res.data.)
-
-// displayProducts(allBooks);
-
-// create a function to show results
-
-
+const submit = document.querySelector(".magnifyButton");
+const searchInput = document.querySelector(".searchbox");
 const productContainer = document.querySelector(".products");
 
-const displayProducts = async () => {
+//search function
 
-    const randomLetter = Math.random().toString(36).slice(2, 3);
-     //random letter/number search to generate random result
+submit.addEventListener("click", async (e) => {
+  e.preventDefault();
+  const searchTerm = searchInput.value.toLowerCase();
+  const res = await axios.get(
+    "https://www.googleapis.com/books/v1/volumes?q=" +
+      searchTerm +
+      "&key=AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw" +
+      "&maxResults=40"
+  );
 
-    const config = { params: { title: randomLetter } };
-    const res = await axios.get(`http://openlibrary.org/search.json`, config);
-    console.log(res.data.docs);
+  //googlebooksAPI key AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw
 
-    let output = '';
-    
-    
-    res.data.docs.slice(0,-10).forEach(book => {    // res.data.docs is an array of object 
-        //sliced 10 only
-        
-        var bookTitle = book.title;
-        if (book.title.length >= 40){
-            bookTitle = book.title.slice(0,40);
-        } 
+  console.log(res.data.items);
+  totalResult = res.data.items;
+  showOutput();
+});
 
-        var bookAuthor = book.author_name
-        if (book.author_name.length > 1 ){
-             bookTitle = book.author_name[0];
-        }
+// create function for category
 
-        var pubYear = book.publish_year;
-        if (book.publish_year.length > 1) {
-            pubYear = book.publish_year[0]
-        }
+const fiction = document.querySelector(".fiction");
 
-        var imageSrc = "https://covers.openlibrary.org/b/id/"+ book.cover_i + "-L.jpg";
-        if (book.cover_i === undefined){
-            return;
-        }
+fiction.addEventListener("click", async () => {
+  const res = await axios.get(
+    "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&key=AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw"
+  );
+  totalResult = res.data.items;
+  showOutput();
+});
 
-        output +=
-            `<div class="productContent">
+const children = document.querySelector(".children");
+
+children.addEventListener("click", async () => {
+  const res = await axios.get(
+    "https://www.googleapis.com/books/v1/volumes?q=subject:children&key=AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw"
+  );
+  totalResult = res.data.items;
+  showOutput();
+});
+
+const nature = document.querySelector(".nature");
+
+nature.addEventListener("click", async () => {
+  const res = await axios.get(
+    "https://www.googleapis.com/books/v1/volumes?q=subject:nature&key=AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw"
+  );
+  totalResult = res.data.items;
+  showOutput();
+});
+
+const religion = document.querySelector(".religion");
+
+religion.addEventListener("click", async () => {
+  const res = await axios.get(
+    "https://www.googleapis.com/books/v1/volumes?q=subject:religion&key=AIzaSyAivT_GqY9-Rl6MBY7Z0whim7SGatWXvJw"
+  );
+  totalResult = res.data.items;
+  showOutput();
+});
+
+const showOutput = () => {
+  let output = "";
+
+  totalResult.forEach((book) => {
+    // res.data.items is an array of object
+
+    try {
+      var bookTitle = book.volumeInfo.title;
+      if (book.volumeInfo.title >= 40) {
+        bookTitle = book.title.slice(0, 40);
+      }
+
+      var bookAuthor = book.volumeInfo.authors;
+      if (Array.isArray(bookAuthor)) {
+        bookAuthor = book.volumeInfo.authors[0];
+      }
+
+      if (bookAuthor === undefined) {
+        return;
+      }
+
+      var pubYear = book.volumeInfo.publishedDate;
+      if (pubYear.length > 4) {
+        pubYear = pubYear.slice(0, 4);
+      }
+
+      var imageSrc = book.volumeInfo.imageLinks.thumbnail;
+
+      var infoLink = book.volumeInfo.infoLink;
+
+      output += `<div class="productContent">
     <div class="imageContainer">
         <img class="productImg" src = ${imageSrc} alt=""
         />
-        </div>
-        <span class="bookTitle">${bookTitle}</span>
+        </div>    
     <div class='lowerProduct'>
+        <span class="bookTitle">${bookTitle}</span>
+        <div class='yearAuthor'>
         <span class="author">${bookAuthor}</span>
         <span class="publishedYear">${pubYear}</span>
         </div>
-    </div>`
-
-      })
-
-      productContainer.innerHTML = output;
-    
+        <a class="bookInfo" href=${infoLink}>Book Info</a>
+        </div>
+        
+    </div>`;
+    } catch (e) {
+      return;
     }
-  displayProducts();
+  });
+  productContainer.innerHTML = output;
+};
