@@ -1,3 +1,4 @@
+
 const bookData = [
   {
     id: 1,
@@ -95,7 +96,7 @@ const displayProducts = (filteredProducts) => {
       (item) =>
         `<div class="productContent">
         <div class="imageContainer">
-            <img
+            <img class='productImg'
             src = ${item.img}
             alt=""
             />
