@@ -13,7 +13,7 @@ const popularAuthorContainer = document.querySelector('.products3');
 
 
 
-
+//
 
 
 
@@ -291,10 +291,10 @@ newReleased()
 
 //popular Authors
 
-const authors = [ "Anne Rice","Rick Riordan","Hajime Isayama","Patricia Cornwell","Nicholas Sparks","Stephenie Meyer","EL James","Dan Brown","C. S. Lewis","J. R. R. Tolkien","James Patterson","Stephen King","R. L. Stine","Dr. Seuss","William Shakespeare","J. K. Rowling"]
+const authors = [ "Anne Rice","Cassandra Clare","George R. R. Martin","Rick Riordan","Veronica Roth","Patricia Cornwell","Nicholas Sparks","Stephenie Meyer","EL James","Dan Brown","C. S. Lewis","J. R. R. Tolkien","James Patterson","Stephen King","R. L. Stine","Dr. Seuss","William Shakespeare","J. K. Rowling","Suzanne Collins"]
 
 const popularAuthors = async () => {
-  const rand = authors[Math.floor(Math.random()*18)]
+  const rand = authors[Math.floor(Math.random()*21)]
     const res = await axios.get(
       "https://www.googleapis.com/books/v1/volumes?q=inauthor:" +rand+ "&key=" + apiKey + "&maxResults=3")
     totalResult = res.data.items
@@ -362,11 +362,11 @@ popularAuthors()
 
 //trending Books
 
-const hotBooks = [ "The Subtle Art of Not Giving a F*ck","The 5 Love Languages","Harry Potter and the Order of the Phoenix","Interesting Facts For Curious Minds","November 9","Ugly Love","Reminders of Him","Atomic Habits","The Seven Husbands of Evelyn Hugo","Verity","Where the Crawdads Sing","It Ends with Us","It Starts with U"]
+const hotBooks = [ "Chain of Thorns","If He Had Been with Me","The Battle of The Labyrinth","The Subtle Art of Not Giving a F*ck","The 5 Love Languages","Harry Potter and the Order of the Phoenix","Interesting Facts For Curious Minds","Hunger Games","Ugly Love","Reminders of Him","Atomic Habits","The Seven Husbands of Evelyn Hugo","Verity","Where the Crawdads Sing","It Ends with Us","It Starts with U"]
 
 const trendingBooks = async () => {
   trending.textContent = 'Hot Pick For You'
-  const rand = hotBooks[(Math.floor(Math.random()*14))]
+  const rand = hotBooks[(Math.floor(Math.random()*16))]
   const res = await axios.get(
     "https://www.googleapis.com/books/v1/volumes?q=" +rand+ "&orderBy=relevance&printType=books&key=" + apiKey + "&maxResults=1")
     totalResult = res.data.items
