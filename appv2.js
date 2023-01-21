@@ -13,7 +13,7 @@ const popularAuthorContainer = document.querySelector('.products3');
 
 
 
-
+//
 
 
 
@@ -362,11 +362,11 @@ popularAuthors()
 
 //trending Books
 
-const hotBooks = [ "The Subtle Art of Not Giving a F*ck","The 5 Love Languages","Harry Potter and the Order of the Phoenix","Interesting Facts For Curious Minds","November 9","Ugly Love","Reminders of Him","Atomic Habits","The Seven Husbands of Evelyn Hugo","Verity","Where the Crawdads Sing","It Ends with Us","It Starts with U"]
+const hotBooks = [ "The Subtle Art of Not Giving a F*ck","The 5 Love Languages","Harry Potter and the Order of the Phoenix","Interesting Facts For Curious Minds","Hunger Games","Ugly Love","Reminders of Him","Atomic Habits","The Seven Husbands of Evelyn Hugo","Verity","Where the Crawdads Sing","It Ends with Us","It Starts with U"]
 
 const trendingBooks = async () => {
   trending.textContent = 'Hot Pick For You'
-  const rand = hotBooks[(Math.floor(Math.random()*14))]
+  const rand = hotBooks[(Math.floor(Math.random()*13))]
   const res = await axios.get(
     "https://www.googleapis.com/books/v1/volumes?q=" +rand+ "&orderBy=relevance&printType=books&key=" + apiKey + "&maxResults=1")
     totalResult = res.data.items
