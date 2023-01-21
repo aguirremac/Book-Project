@@ -1,154 +1,439 @@
 * {
-    box-sizing: border-box; 
-    /* Always apply this on * since this will reset the builtin padding/margins */
+  box-sizing: border-box;
+  /* Always apply this on * since this will reset the builtin padding/margins */
 }
 
 body {
-    background-color: #AEBDCA;
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
-
+  background-color: #aebdca;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
 }
 
 .preloader {
-    display: none;
-    background: #ffffff url(img/preloader.gif) no-repeat center center;
-    background-size:20%; 
-    height: 100vh;
-    z-index: 100;
-    width: 100%;
-
+  display: none;
+  background: #ffffff url(img/preloader.gif) no-repeat center center;
+  background-size: 20%;
+  height: 100vh;
+  z-index: 100;
+  width: 100%;
 }
-
-
 
 .container {
-    width: 100%;
-    display: flex;
-    z-index: 1;
-    
-    
-
+  width: 100%;
+  display: flex;
 }
-
 
 .leftSection {
-    flex-direction: column;
-    padding: 50px 10px 50px 30px;
-    width: 15%;
-    height: 100vh;
-    max-height: min-content;
-    margin-right: 100px;
-    background-color: #E8DFCA;
-    
+  flex-direction: column;
+  padding: 25px 5px 25px 15px;
+  width: 30%;
+  height: 100vh;
+  margin-right: 20px;
+  background-color: #e8dfca;
+  
+  
 }
 .logoSection {
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-    
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
 .brandLogo {
-    height: 30px;
+  height: 15px;
 }
 
 .brandName {
-    font-size: 30px;
-    font-weight: bolder;
-    padding-left: 10px;
-    letter-spacing: 10px;
-    
+  font-size: 15px;
+  font-weight: bolder;
+  padding-left: 5px;
+  letter-spacing: 5px;
 }
 
-
-.searcboxGroup{
-    display: flex;
+.searcboxGroup {
+  display: flex;
+  padding-top: 30px;
 }
-
 
 .searchbox {
- padding: 10px;
- height: 40px;
- border-radius: 10px;
- border: gray 1px solid;
- width: 100%;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  border: gray 1px solid;
+  width: 100%;
 }
 .magnify {
-    height: 40px;
-    padding-left: 10px;
-    cursor: pointer;
+  display: none;
 }
 
-.magnify:hover {
-    transform: scale(1.2);
-
-}
 .magnifyButton {
-    border: 0 ;
-    background-color: transparent;
+  border: 0;
+  background-color: transparent;
 }
 
-input::placeholder, input {
-    font-family: 'Montserrat', sans-serif;
+input::placeholder,
+input {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
 }
-
 
 .category {
-    font-weight: 600;
-    font-size: 25px;
-    
+   padding-top: 30px;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .priceValue {
-    font-weight: 800;
-    font-size: smaller;
+  font-weight: 800;
+  font-size: smaller;
 }
 
 .priceRange {
-    width: 100%;
-    display: flex;
-    gap: 5px;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .rangeBtn {
-    width: 100%;
+  width: 100%;
 }
 
 .startEnd {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cats {
-    padding-left:  0;
-    font-weight: 600;
-    
-    
+  padding-left: 0;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 li {
-    list-style: none;
-    padding-bottom: 20px;
+  list-style: none;
+  padding-bottom: 10px;
 }
-li:hover, .bookTitle:hover{
-    color: orangered;
-    font-weight: bold;
-    cursor: pointer;
-
+li:hover,
+.bookTitle:hover {
+  color: orangered;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .max {
-    font-weight: 800;
-    font-size: 15px;
+  font-weight: 800;
+  font-size: 10px;
+  display: none;
 }
 
 .range {
+}
+
+.yearRange {
+    display: none;
+}
+
+.yearValueStart, .yearValueEnd {
+    font-size: 10px;
     
 }
 
 .products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-items: center;
+  justify-content: flex-start;
+  z-index: 99;
+  position: absolute;
+  top: 25px;
+  animation: fadeIn 1s;
+}
+
+.rightSection {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.searchText {
+  font-weight: 900;
+  padding-left: 12px;
+  padding-top: 20px;
+  z-index: 999;
+  font-size: 12px;
+  margin: 0;
+  
+}
+
+.productContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  margin: 10px;
+  margin-top: 10px;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+  border-radius: 5px;
+  padding: 12px;
+  background-color: #f5efe6;
+}
+
+.author {
+  font-size: 4px;
+  gap: 5px;
+  height: 5px;
+  overflow: hidden;
+  display: block;
+}
+
+.bookTitle {
+  font-size: 5px;
+  height: 50px;
+  font-weight: bold;
+  position: relative;
+  top: 12px;
+  display: block;
+}
+
+.bookTitle:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
+}
+
+.productImg {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 5px;
+  transition: 0.5s;
+
+}
+
+.productImg:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+.publishedYear {
+  padding-bottom: 5px;
+  display: block;
+  
+}
+
+.lowerProduct {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75px;
+  padding: 0 0 0 15px;
+}
+
+.yearAuthor {
+  font-size: 5px;
+  font-weight: 600;
+}
+
+.bookInfo {
+  padding: 2px 5px;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  bottom: 0;
+  text-decoration: none;
+  font-size: 5px;
+  color: white;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-image: linear-gradient(
+    to right,
+    #003973 0%,
+    #e5e5be 51%,
+    #003973 100%
+  );
+  box-shadow: 0 0 10px #eee;
+  background-size: 200% auto;
+}
+.bookInfo:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.homeBooks {
+    z-index: 999;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.products1 {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+.products3 {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.products2 {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.trending {
+    position: relative;
+    top: 0px;
+    padding-left: 10px;
+    font-size: 12px;
+  }
+.popularAuthor {
+  position: relative;
+  top: 0px;
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+
+@media screen and (min-width: 700px) {
+    .leftSection {
+        width: 20%;
+    }
+    .rightSection{
+        width: 80%;
+    }
+    
+}
+
+
+@media screen and (min-width: 1000px) {
+    .leftSection {
+        width: 15%;
+    }
+    .rightSection{
+        width: 85%;
+    }
+
+    .searcboxGroup {
+        display: flex;
+      }
+    
+      .searchbox {
+        padding: 10px;
+        height: 30px;
+        border-radius: 10px;
+        border: gray 1px solid;
+        width: 100%;
+      }
+      .magnify {
+        display: none;
+        height: 40px;
+        padding-left: 10px;
+        cursor: pointer;
+      }
+    
+      .magnify:hover {
+        transform: scale(1.2);
+      }
+      .magnifyButton {
+        border: 0;
+        background-color: transparent;
+      }
+    
+      input::placeholder,
+      input {
+        font-family: "Montserrat", sans-serif;
+      }
+    
+      .category {
+        font-weight: 600;
+        font-size: 25px;
+      }
+    
+      .priceValue {
+        font-weight: 800;
+        font-size: smaller;
+      }
+    
+      .priceRange {
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+      }
+    
+      .rangeBtn {
+        width: 100%;
+      }
+    
+      .startEnd {
+        display: flex;
+        justify-content: space-between;
+      }
+    
+      .cats {
+        padding-left: 0;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 60px;
+      }
+    
+      .max {
+        font-weight: 800;
+        font-size: 15px;
+      }
+    
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1280px) {
+  .leftSection {
+    flex-direction: column;
+    padding: 50px 20px 50px 20px;
+    width: 15%;
+    height: 100vh;
+    max-height: min-content;
+    margin-right: 30px;
+    background-color: #e8dfca;
+  }
+  .logoSection {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  .brandLogo {
+    height: 18px;
+  }
+
+  .brandName {
+    font-size: 18px;
+    font-weight: bolder;
+    padding-left: 10px;
+    letter-spacing: 10px;
+  }
+
+  .products {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -157,24 +442,23 @@ li:hover, .bookTitle:hover{
     justify-content: flex-start;
     z-index: 99;
     position: absolute;
-    top: 50px; 
+    top: 50px;
     animation: fadeIn 1s;
-}
+  }
 
-.rightSection {
+  .rightSection {
     width: 85%;
     display: flex;
     flex-direction: column;
-    
-}
+  }
 
-.searchText {
+  .searchText {
     font-weight: 900;
     padding-left: 30px;
-    
-}
+    font-size: 30px;
+  }
 
-.productContent {
+  .productContent {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -186,121 +470,128 @@ li:hover, .bookTitle:hover{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
     border-radius: 10px;
     padding: 25px;
-    background-color: #F5EFE6;
-    
-    
-    
-   
-    
-}
+    background-color: #f5efe6;
+  }
 
-
-
-.author {
+  .author {
     font-size: 7px;
     gap: 10px;
     height: 10px;
     overflow: hidden;
     display: block;
+  }
 
-}
-    
+  .bookTitle {
+    font-size: 10px;
+    height: 100px;
+    font-weight: bold;
+    position: relative;
+    top: 25px;
+    display: block;
+  }
 
-.bookTitle{
-
-font-size: 10px;
-height: 100px;
-font-weight: bold;
-position: relative;
-top: 25px;
-display: block;
-}
-
-.bookTitle:hover{
+  .bookTitle:hover {
     transform: scale(1.05);
     transition: 0.2s ease-in-out;
-}
+  }
 
-
-
-.productImg {
+  .productImg {
     width: 100px;
     height: 150px;
     object-fit: cover;
     object-position: top;
     border-radius: 5px;
     transition: 0.5s;
-}
+  }
 
-.productImg:hover {
+  .productImg:hover {
     transform: scale(1.1);
     transition: 0.2s ease-in-out;
-}
-.publishedYear {
+  }
+  .publishedYear {
     padding-bottom: 10px;
     display: block;
-}
+  }
 
-.lowerProduct {
+  .lowerProduct {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 150px;
     padding: 0 0 0 30px;
-}
-   
-.yearAuthor {
+  }
+
+  .yearAuthor {
     font-size: 10px;
     font-weight: 600;
-    
-}
+  }
 
-
-.bookInfo {
-    padding: 5px 10px ;
+  .bookInfo {
+    padding: 5px 10px;
     border-radius: 5px;
     display: block;
     position: relative;
     bottom: 0;
-    text-decoration:  none;
+    text-decoration: none;
     font-size: 10px;
-    color: white;  
+    color: white;
     text-transform: uppercase;
     transition: 0.5s;
-    background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%);
+    background-image: linear-gradient(
+      to right,
+      #003973 0%,
+      #e5e5be 51%,
+      #003973 100%
+    );
     box-shadow: 0 0 20px #eee;
     background-size: 200% auto;
-    
-    
-     
-}
-.bookInfo:hover {
+  }
+  .bookInfo:hover {
     background-position: right center;
     color: #fff;
     text-decoration: none;
+  }
 
-}
-
-.trending {
+  
+  .popularAuthor {
     position: relative;
-    top: 175px;
+    top: 0px;
     padding-left: 30px;
-}
+    font-size: 30px;
+    margin: 0;
+  }
 
-.products3 {
+  .trending {
     position: relative;
-    display: flex;
-
-}
-
-.products2 {
-    position: relative;
-    display: flex;
-
-}
-.popularAuthor {
-    position: relative;
-    top: 350px;
+    top: 0px;
     padding-left: 30px;
+    font-size: 30px;
+    margin: 0;
+  }
+}
+
+.yearValueStart, .yearValueEnd {
+    font-size: 15px;
+}
+
+
+@media screen and (min-width: 1536px) {
+
+    .brandName {
+        font-size: 20px;
+        font-weight: bolder;
+        padding-left: 10px;
+        letter-spacing: 10px;
+      }
+
+      .brandLogo {
+        height: 20px;
+      }
+
+      .magnify {
+        display: block;
+        height: 25px;
+      }
+
 }
