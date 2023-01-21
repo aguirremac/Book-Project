@@ -33,7 +33,7 @@ submit.addEventListener("click", async (e) => {
     "https://www.googleapis.com/books/v1/volumes?q=" +
       searchTerm +
       "&key=" + apiKey +
-      "&maxResults=40"
+      "&maxResults=12"
   );
 
   //googlebooksAPI key AIzaSyByYKm_A-AVZtii6N8uc9cxY3VNpdNxTUA
